@@ -1,0 +1,9 @@
+{
+  "name": "vast-utils",
+  "version": "0.1.0",
+  "description": "a lib",
+  "main": "index.js",
+  "repository": "https://github.com/yayxs/vast-utils.git",
+  "author": "leaderywl@163.com",
+  "license": "MIT"
+}
