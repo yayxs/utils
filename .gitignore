@@ -2,10 +2,10 @@
 *.log
 *.zip
 .DS_Store
-
+dist
 # folders
 node_modules
 
 # Editor directories and files
-.vscode
+# .vscode
 .idea

@@ -2,13 +2,14 @@
   "name": "vast-utils",
   "version": "0.1.0",
   "description": "a lib",
-  "main": "./dist/vast-utils.js",
+  "main": "dist/vast-utils.cjs.js",
+  "module": "dist/vast-utils.esm.js",
+  "browser": "dist/vast-utils.umd.js",
   "types": "index.d.ts",
   "scripts": {
-    "dev":"webpack --config webpack.config.js",
-    "debug":"node --inspect-brk=2409 ./node_modules/webpack/bin/webpack --config webpack.config.js",
-    "build": "webpack",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "rollup -c -w",
+    "build": "rollup -c",
+    "test": "node test/test.js"
   },
   "repository": {
     "type": "git",
@@ -17,16 +18,28 @@
   "keywords": [
     "utils",
     "tools",
-    "webpack",
+    "rollup",
     "webpack-library",
     "bundling",
-    "library"
+    "library",
+    "javascript"
   ],
-  "author": "leaderywl@163.com",
+  "author": "yayxs",
+  "homepage": "https://github.com/yayxs/vast-utils",
   "license": "MIT",
   "devDependencies": {
-    "nodemon": "^2.0.6",
-    "webpack": "^5.10.0",
-    "webpack-cli": "^4.2.0"
+    "@babel/core": "^7.12.10",
+    "@babel/plugin-external-helpers": "^7.12.1",
+    "@babel/plugin-transform-runtime": "^7.12.10",
+    "@babel/preset-env": "^7.12.10",
+    "@rollup/plugin-babel": "^5.2.2",
+    "@rollup/plugin-commonjs": "^17.0.0",
+    "@rollup/plugin-json": "^4.1.0",
+    "@rollup/plugin-node-resolve": "^11.0.0",
+    "rollup-plugin-terser": "^7.0.2",
+    "rollup-plugin-uglify": "^6.0.4"
+  },
+  "dependencies": {
+    "ms": "^2.1.3"
   }
 }
