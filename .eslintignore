@@ -1,0 +1,5 @@
+# .eslintignore
+
+public
+dist
+node_modules
