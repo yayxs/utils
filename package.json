@@ -1,7 +1,7 @@
 {
   "name": "vast-utils",
   "utilName": "vastUtils",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "A JavaScript utils tool library using Rollup",
   "main": "dist/vast-utils.cjs.js",
   "module": "dist/vast-utils.esm.js",
