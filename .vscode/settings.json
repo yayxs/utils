@@ -1,9 +1,7 @@
 {
-  "workbench.colorTheme": "One Monokai",
   "editor.quickSuggestions": {
-    "strings": true
+    "strings": true,
   },
-  "editor.detectIndentation": false,
   "editor.tabSize": 2,
   "editor.formatOnSave": true,
   "editor.codeActionsOnSave": {
@@ -22,10 +20,5 @@
   },
   "[html]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[vue]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "files.autoSave": "onFocusChange",
-  "workbench.sideBar.location": "right"
+  }
 }

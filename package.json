@@ -1,51 +1,45 @@
 {
   "name": "@vleejs/vutils",
-  "utilName": "@vleejs/vutils",
   "version": "0.0.3",
+  "type": "module",
+  "author": "vanlee",
+  "license": "MIT",
   "description": "Collection of common JavaScript / TypeScript utils",
   "main": "dist/index.cjs",
   "module": "dist/index.mjs",
   "types": "index.d.ts",
-  "type": "module",
   "private": false,
   "scripts": {
-    "build":"rollup -c",
+    "build": "rimraf dist && run-s build-bundle",
+    "build-bundle": "rollup --config rollup.config.ts --configPlugin typescript",
     "dev:w": "rollup -c -w",
     "dev:build": "rimraf dist && cross-env NODE_ENV=development rollup -c && cp dist/vlee-utils.umd.js examples/browser && cp dist/vlee-utils.umd.js examples/node",
-    "pro:build": "rimraf dist && cross-env NODE_ENV=production rollup -c && cp dist/vlee-utils.umd.js examples/browser && cp dist/vlee-utils.umd.js examples/node",
-    "test": "jest --coverage"
+    "pro:build": "rimraf dist && cross-env NODE_ENV=production rollup -c && cp dist/vlee-utils.umd.js examples/browser && cp dist/vlee-utils.umd.js examples/node"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/yayxs/vlee-utils.git"
   },
-  "author": "yayxs <youngwanlia@gmail.com> (https://github.com/yayxs/frontend-thick-talk)",
   "homepage": "https://github.com/yayxs/vlee-utils",
-  "license": "MIT",
+  "engines": {
+    "node": "^14.18.0 || >=16.0.0"
+  },
   "devDependencies": {
-    "@babel/core": "^7.12.10",
-    "@babel/plugin-external-helpers": "^7.12.1",
-    "@babel/plugin-transform-runtime": "^7.12.10",
-    "@babel/preset-env": "^7.12.10",
-    "@rollup/plugin-babel": "^5.2.2",
-    "@rollup/plugin-commonjs": "^17.0.0",
-    "@rollup/plugin-json": "^4.1.0",
-    "@rollup/plugin-node-resolve": "^11.0.0",
+    "@rollup/plugin-commonjs": "^23.0.0",
+    "@rollup/plugin-json": "^5.0.0",
+    "@rollup/plugin-node-resolve": "^15.0.0",
+    "@rollup/plugin-typescript": "^9.0.1",
+    "@types/node": "^18.11.0",
     "cross-env": "^7.0.3",
     "eslint": "^7.15.0",
     "eslint-plugin-prettier": "^3.2.0",
-    "jest": "^26.6.3",
     "jsdoc-to-markdown": "^6.0.1",
+    "npm-run-all": "^4.1.5",
     "prettier": "^2.2.1",
     "rimraf": "^3.0.2",
-    "rollup-plugin-terser": "^7.0.2",
-    "rollup-plugin-uglify": "^6.0.4",
-    "rollup-watch": "^4.3.1",
-    "stylelint": "^13.8.0",
-    "stylelint-config-prettier": "^8.0.2",
-    "stylelint-config-recess-order": "^2.3.0"
+    "tslib": "^2.4.0",
+    "typescript": "^4.8.4"
   },
-  "dependencies": {},
   "gitHooks": {
     "pre-commit": "lint-staged"
   },
@@ -53,9 +47,11 @@
     "utils",
     "tools",
     "rollup",
-    "webpack-library",
     "library",
     "javascript",
     "ES6函数库"
-  ]
+  ],
+  "dependencies": {
+    "rollup": "^3.2.2"
+  }
 }
