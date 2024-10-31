@@ -1,9 +1,13 @@
 {
-  "extends": "./tsconfig.base.json",
-  "compilerOptions": {
-    "strict": false,
-    "declaration": false,
-    "resolveJsonModule": true
-  },
-  "include": ["./rollup.config.ts","**/*.ts"]
+  "compilerOptions":{
+    "target": "es2018",
+    "lib": ["esnext"],
+    "module": "esnext",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "strict": true,
+    "strictNullChecks": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true
+  }
 }
