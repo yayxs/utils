@@ -1,26 +1,25 @@
-
-import { defineConfig } from 'rollup'
-import nodeResolve from '@rollup/plugin-node-resolve'
-import typescript from '@rollup/plugin-typescript'
 import commonjs from '@rollup/plugin-commonjs'
 import json from '@rollup/plugin-json'
+import nodeResolve from '@rollup/plugin-node-resolve'
+import typescript from '@rollup/plugin-typescript'
+import { defineConfig } from 'rollup'
 
-function createPlugins(){
+function createPlugins() {
   return [
     nodeResolve({
       preferBuiltins: true,
     }),
     typescript(),
     commonjs({
-      extensions:['.js']
+      extensions: ['.js'],
     }),
-    json()
+    json(),
   ]
 }
 
-const baseEntries= `src/index.ts`
-const baseConfig =    defineConfig({
-  input:'src/index.ts',
+const baseEntries = `src/index.ts`
+const baseConfig = defineConfig({
+  input: 'src/index.ts',
   output: [
     {
       file: baseEntries.replace('src/', 'dist/').replace('.ts', '.mjs'),
@@ -31,12 +30,10 @@ const baseConfig =    defineConfig({
       format: 'cjs',
     },
   ],
-  plugins:createPlugins()
+  plugins: createPlugins(),
 })
 
-export default (commandLineArgs) =>{
-  const isDev = commandLineArgs.watch // 开发环境
-  const isProduction = !isDev // 生产环境
+export default () => {
   return defineConfig([
     baseConfig,
   ])
