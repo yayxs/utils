@@ -1,18 +1,19 @@
 {
   "name": "vast-utils",
+  "utilName": "vastUtils",
   "version": "0.1.0",
   "description": "A JavaScript utils tool library using Rollup",
   "main": "dist/vast-utils.cjs.js",
   "module": "dist/vast-utils.esm.js",
   "browser": "dist/vast-utils.umd.js",
   "types": "index.d.ts",
+  "type": "module",
   "private": false,
   "scripts": {
-    "dev": "rollup -c -w",
-    "build": "rollup -c",
-    "build:browser": "rollup -c && cp dist/vast-utils.umd.js examples/browser",
-    "build:node": "rollup -c && cp dist/vast-utils.umd.js examples/node",
-    "test": "node test/test.js"
+    "dev:watch": "rollup -c -w",
+    "dev:build": "rimraf dist && cross-env NODE_ENV=development rollup -c && cp dist/vast-utils.umd.js examples/browser && cp dist/vast-utils.umd.js examples/node",
+    "pro:build": "rimraf dist && cross-env NODE_ENV=production rollup -c && cp dist/vast-utils.umd.js examples/browser && cp dist/vast-utils.umd.js examples/node",
+    "test": "jest --coverage"
   },
   "repository": {
     "type": "git",
@@ -31,11 +32,16 @@
     "@rollup/plugin-json": "^4.1.0",
     "@rollup/plugin-node-resolve": "^11.0.0",
     "babel-eslint": "^10.1.0",
+    "cross-env": "^7.0.3",
     "eslint": "^7.15.0",
     "eslint-plugin-prettier": "^3.2.0",
+    "jest": "^26.6.3",
     "prettier": "^2.2.1",
+    "rimraf": "^3.0.2",
+    "rollup-plugin-commonjs": "^10.1.0",
     "rollup-plugin-terser": "^7.0.2",
     "rollup-plugin-uglify": "^6.0.4",
+    "rollup-watch": "^4.3.1",
     "stylelint": "^13.8.0",
     "stylelint-config-prettier": "^8.0.2",
     "stylelint-config-recess-order": "^2.3.0"
@@ -50,6 +56,7 @@
     "rollup",
     "webpack-library",
     "library",
-    "javascript"
+    "javascript",
+    "ES6函数库"
   ]
 }

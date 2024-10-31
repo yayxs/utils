@@ -1,7 +1,4 @@
-export const firstTestUtil = () => ({
-  success: 'true',
-})
+export { version, utilName } from '../package.json'
 
-// ----------校验validate-----------------
-
-export const isHttpsMailtoTel = (path) => /^(https?:mailto:|tel)/.test(path)
+export * from './array'
+export * from './regExp'
