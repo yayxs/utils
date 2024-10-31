@@ -1,12 +1,11 @@
 
 import { defineConfig } from 'rollup'
-import type { Plugin,RollupOptions } from 'rollup'
 import nodeResolve from '@rollup/plugin-node-resolve'
 import typescript from '@rollup/plugin-typescript'
 import commonjs from '@rollup/plugin-commonjs'
 import json from '@rollup/plugin-json'
 
-function createPlugins():Plugin[]{
+function createPlugins(){
   return [
     nodeResolve({
       preferBuiltins: true,
@@ -19,8 +18,8 @@ function createPlugins():Plugin[]{
   ]
 }
 
-const baseEntries:string = `src/index.ts`
-const baseConfig = defineConfig({
+const baseEntries= `src/index.ts`
+const baseConfig =    defineConfig({
   input:'src/index.ts',
   output: [
     {
@@ -35,10 +34,9 @@ const baseConfig = defineConfig({
   plugins:createPlugins()
 })
 
-export default (commandLineArgs: any): RollupOptions[] =>{
+export default (commandLineArgs) =>{
   const isDev = commandLineArgs.watch // 开发环境
   const isProduction = !isDev // 生产环境
-  console.warn('isProduction',isProduction)
   return defineConfig([
     baseConfig,
   ])
